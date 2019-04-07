@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Easy Note : Home</title>
+</head>
+<body>
+	
+	<p th:text="'Welcome '+${user.userName}"/>
+	
+	 
+	<label for="note"><b>Enter new note : </b></label>
+	
+	<form action="#" th:action="@{/home}"
+    	th:object="${note}" method="post">
+		<textarea rows="4" cols = "50" placeholder="Enter Note" name="note" th:field=*{noteText}></textarea><br>
+		<button type="submit">Submit</button>
+	</form>
+	<br>
+	<form action="#" th:action="@{/getNotes}" th:object="${user}" method="get">
+		<button type="submit">See notes!</button>
+	</form>
+</body>
+</html>

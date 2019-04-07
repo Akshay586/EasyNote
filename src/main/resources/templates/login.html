@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Easy Note : Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	
+  	<form action="#" th:action="@{/login}"
+    	th:object="${user}" method="post">
+  		<div>
+  			<p th:text="'It seems like '+${user.emailId}+' is already registered'"/>
+			<p th:text="'try logging in?'"/>
+			<label for="username"><b>User Name</b></label>
+    		<input type="text" placeholder="Enter Username" th:field=*{userName} name="username" required>
+			<br>
+    		<label for="psw"><b>Password</b></label>
+    		<input type="password" placeholder="Enter Password" th:field=*{password} name="psw" required>
+			<br>
+			<button type="submit" class="registerbtn">Submit</button>
+		</div>
+	</form>
+</body>
+</html>

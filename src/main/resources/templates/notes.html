@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Easy Note : Home</title>
+</head>
+<body>
+	
+	<form action="#" th:action="@{/crud}" th:object="${user}" method="get">
+	<p th:text="'Existing notes :'">
+	<!-- get a list of existing notes -->
+	<table>
+		<tr th:if="${user.notes.empty}">
+			<td colspan="2"> No Notes Available </td>
+		</tr>
+		
+		<tr th:each="noteMap: ${user.notes}">
+			<td><span th:text="${noteMap.value.noteText}"> Title </span></td>
+			<td><a th:href="@{|/delete_note/${noteMap.value.noteID}|}">Delete</a></td>
+			<!--  <td><input type="text" th:object="${note}"></td>-->
+			<td><a th:href="@{|/update_note/${noteMap.value.noteID}|}">Update</a></td>
+		</tr>
+	</table>
+	</form>
+	<form action="#" th:action="@{/home}" th:object="${user}" method="get">
+		
+	<button type="submit">Return to home?</button>
+	</form>
+</body>
+</html>
